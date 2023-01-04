@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+ <item
+     android:id="@+id/sensors"
+     android:title="Sensors"
+     android:icon="@drawable/ic_baseline_sensors_24"
+     android:textColor="@color/black"
+
+     />
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        />
+</menu>

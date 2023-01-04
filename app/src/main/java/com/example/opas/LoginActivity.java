@@ -1,14 +1,11 @@
 package com.example.opas;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -17,9 +14,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.button.MaterialButton;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -66,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
     void navigateToHomeActivity(){
         finish();
-        Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
         startActivity(intent);
     }
 }
