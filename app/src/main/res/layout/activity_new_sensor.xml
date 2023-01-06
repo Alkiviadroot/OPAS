@@ -1,45 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".NewSensorActivity">
 
-
-    <EditText
-        android:id="@+id/name"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
-        android:hint="Name"
-        android:inputType="text"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:background="@drawable/border"
-        android:textColorHint="@color/black" />
+        android:id="@+id/title_bar_layout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/page_title"
+            android:text="Add New Sensor"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/zone"
-        android:layout_below="@+id/name"
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/save_sensor_button"
+        android:src="@drawable/ic_baseline_done_24"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        app:tint="@color/red"
+        android:background="?attr/selectableItemBackgroundBorderless"
+
+        />
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:padding="20dp"
-        android:background="@drawable/border"
-        android:text="Zones" />
+        android:layout_below="@id/title_bar_layout"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/sensor_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:padding="4dp"
+            android:text="Name"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sensor_name"
+            android:padding="16dp"
+            android:inputType="text"
+            android:background="@drawable/border"
+             />
+        <TextView
+            android:id="@+id/sensor_zone_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="4dp"
+            android:text="Zone"
+            android:textStyle="bold" />
 
-<!--    <Spinner-->
-<!--        android:id="@+id/spinner"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:prompt="Indoor" />-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sensor_zone"
+            android:padding="16dp"
+            android:inputType="text"
+            android:background="@drawable/border"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/sensor_id_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="4dp"
+            android:text="Id"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sensor_id"
+            android:padding="16dp"
+            android:inputType="text"
+            android:background="@drawable/border"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/spinner_type_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="4dp"
+            android:text="Type"
+            android:textStyle="bold" />
+        <Spinner
+            android:id="@+id/spinner_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:inputType="text"
+            android:padding="6dp"
+            android:spinnerMode="dropdown"/>
+
+
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="26dp"-->
+<!--            android:id="@+id/sensor_type"-->
+
+<!--            android:hint="Type"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">-->
+<!--            <AutoCompleteTextView-->
+<!--                android:id="@+id/auto_complete_type"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textStyle="bold"-->
+<!--                android:inputType="text"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+    </LinearLayout>
 
 </RelativeLayout>
