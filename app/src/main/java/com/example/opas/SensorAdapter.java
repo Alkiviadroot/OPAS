@@ -51,7 +51,8 @@ public class SensorAdapter extends FirestoreRecyclerAdapter<Sensor, SensorAdapte
             Intent intent = new Intent(context,SensorDetailsActivity.class);
             intent.putExtra("name",sensor.Name);
             intent.putExtra("zone",sensor.Zone);
-            intent.putExtra("id",sensor.Id);
+            intent.putExtra("singleValueId",sensor.SingleValueId);
+            intent.putExtra("rangeValuesId",sensor.RangeValuesId);
             intent.putExtra("type",sensor.Type);
 
             String docId=this.getSnapshots().getSnapshot(position).getId();

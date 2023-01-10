@@ -21,16 +21,12 @@ import com.google.firebase.firestore.DocumentReference;
 
 public class NewSensorActivity extends AppCompatActivity {
     Spinner typeEditText;
-
-    //    TextInputLayout typeEditText;
-    EditText nameEditText, zoneEditText, idEditText;
+    EditText nameEditText, zoneEditText, singleValueIdEditText,rangeValuesIdEditText;
     ImageButton saveSensorButton;
     TextView pageTitleTextView;
-    String name, zone, id, type, docId;
-    boolean isEditMode = false;
+    String name, zone, singleValueId,rangeValuesId, type, docId;
     String[] types = {"Activity", "Temperature", "Humidity", "CO2"};
-    AutoCompleteTextView autoCompleteTextView;
-    ArrayAdapter<String> arrayAdapter;
+    boolean isEditMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,46 +35,44 @@ public class NewSensorActivity extends AppCompatActivity {
 
         nameEditText = findViewById(R.id.sensor_name);
         zoneEditText = findViewById(R.id.sensor_zone);
-        idEditText = findViewById(R.id.sensor_id);
+        singleValueIdEditText = findViewById(R.id.sensor_id_single);
+        rangeValuesIdEditText = findViewById(R.id.sensor_id_range);
         typeEditText = findViewById(R.id.spinner_type);
         saveSensorButton = findViewById(R.id.save_sensor_button);
         pageTitleTextView = findViewById(R.id.page_title);
 
         name = getIntent().getStringExtra("name");
         zone = getIntent().getStringExtra("zone");
-        id = getIntent().getStringExtra("id");
+        singleValueId = getIntent().getStringExtra("singleValueId");
+        rangeValuesId = getIntent().getStringExtra("rangeValuesId");
         type = getIntent().getStringExtra("type");
         docId = getIntent().getStringExtra("docId");
 
         typeEditText = findViewById(R.id.spinner_type);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
         typeEditText.setAdapter(adapter);
-//        typeEditText.setOnItemSelectedListener(this);
 
-
-        if (docId != null && !docId.isEmpty()) {
-            isEditMode = true;
-        }
+        if (docId != null && !docId.isEmpty()) {isEditMode = true;}
 
         if (isEditMode) {
             pageTitleTextView.setText("Edit Sensor");
             nameEditText.setText(name);
             zoneEditText.setText(zone);
-            System.out.println("type:"+type);
+            singleValueIdEditText.setText(singleValueId);
+            rangeValuesIdEditText.setText(rangeValuesId);
+
             int spinnerPosition = adapter.getPosition(type);
             typeEditText.setSelection(spinnerPosition);
-            idEditText.setText(id);
         }
         saveSensorButton.setOnClickListener((v) -> saveSensor());
     }
 
     void saveSensor() {
         TextView typeEditTextSpinner = (TextView)typeEditText.getSelectedView();
-
-
         String sensorName = nameEditText.getText().toString();
         String sensorZone = zoneEditText.getText().toString();
-        String sensorId = idEditText.getText().toString();
+        String sensorSingleValueId = singleValueIdEditText.getText().toString();
+        String sensorRangeValuesId = rangeValuesIdEditText.getText().toString();
         String sensorType = typeEditTextSpinner.getText().toString();
 
         if (sensorName == null || sensorName.isEmpty()) {
@@ -90,8 +84,13 @@ public class NewSensorActivity extends AppCompatActivity {
             return;
         }
 
-        if (sensorId == null || sensorId.isEmpty()) {
-            idEditText.setError("Id is required");
+        if (sensorSingleValueId == null || sensorSingleValueId.isEmpty()) {
+            singleValueIdEditText.setError("Id is required");
+            return;
+        }
+
+        if (sensorRangeValuesId == null || sensorRangeValuesId.isEmpty()) {
+            rangeValuesIdEditText.setError("Id is required");
             return;
         }
 
@@ -104,42 +103,39 @@ public class NewSensorActivity extends AppCompatActivity {
         sensor.setName(sensorName);
         sensor.setZone(sensorZone);
         sensor.setType(sensorType);
-        if (isNumeric(sensorId)) {
-            sensor.setId(sensorId);
-            saveSensorToFirebase(sensor);
+        if (isNumeric(sensorSingleValueId)) {
+            sensor.setSingleValueId(sensorSingleValueId);
         } else {
-            idEditText.setError("Id not formatted correctly");
+            singleValueIdEditText.setError("Id not formatted correctly");
             return;
         }
-
+        if (isNumeric(sensorRangeValuesId)) {
+            sensor.setRangeValuesId(sensorRangeValuesId);
+        } else {
+            rangeValuesIdEditText.setError("Id not formatted correctly");
+            return;
+        }
+        saveSensorToFirebase(sensor);
     }
 
     public static boolean isNumeric(String string) {
         int intValue;
-
-        System.out.println(String.format("Parsing string: \"%s\"", string));
-
         if (string == null || string.equals("")) {
-            System.out.println("String cannot be parsed, it is null or empty.");
             return false;
         }
-
         try {
             intValue = Integer.parseInt(string);
             return true;
-        } catch (NumberFormatException e) {
-            System.out.println("Input String cannot be parsed to Integer.");
-        }
+        } catch (NumberFormatException e) {}
         return false;
     }
 
     void saveSensorToFirebase(Sensor sensor) {
         DocumentReference documentReference;
         if (isEditMode) {
-            documentReference = Utility.getCollectionReferenceFotSensors().document(docId);
-
+            documentReference = Utility.getCollectionReferenceForSensors().document(docId);
         } else {
-            documentReference = Utility.getCollectionReferenceFotSensors().document();
+            documentReference = Utility.getCollectionReferenceForSensors().document();
         }
         documentReference.set(sensor).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

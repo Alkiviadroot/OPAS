@@ -32,7 +32,6 @@ public class SensorsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         addSensorBtn = view.findViewById(R.id.add_sensor_btn);
         recyclerView = view.findViewById(R.id.recycler_view);
-
         addSensorBtn.setOnClickListener((v)->startActivity(new Intent(getActivity(),NewSensorActivity.class)));
         setupRecyclerView();
     }
@@ -41,13 +40,11 @@ public class SensorsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_sensors, container, false);
-
     }
 
     void setupRecyclerView(){
-        Query query = Utility.getCollectionReferenceFotSensors();
+        Query query = Utility.getCollectionReferenceForSensors();
         FirestoreRecyclerOptions<Sensor> options= new FirestoreRecyclerOptions.Builder<Sensor>().setQuery(query,Sensor.class).build();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         sensorAdapter= new SensorAdapter(options,getActivity());

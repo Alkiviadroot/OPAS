@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="16dp"
+tools:context=".AboutActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/page_title"
+        android:text="About Application"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="OPAS is a tool for managing and analyzing data from sensors in real-time. Our goal is to provide users with an easy-to-use platform for collecting, visualizing, and analyzing sensor data from a variety of sources."/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="We started OPAS because we saw a need for a more efficient and effective way to manage sensor data. With our application, users can monitor and analyze sensor data from multiple locations, set up alerts and notifications, and generate reports with just a few clicks."/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Our team is made up of experienced software developers and data analysts with a passion for solving complex problems. We are dedicated to helping our users get the most out of their sensor data."/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Thank you for using OPAS. If you have any questions or feedback, don't hesitate to reach out to us at info@frederick.ac.cy."/>
+
+</LinearLayout>
+</ScrollView>

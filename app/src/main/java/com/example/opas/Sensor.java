@@ -3,7 +3,8 @@ package com.example.opas;
 public class Sensor {
     String Name;
     String Zone;
-    String Id;
+    String SingleValueId;
+    String RangeValuesId;
     String Type;
 
     public Sensor() {}
@@ -24,9 +25,13 @@ public class Sensor {
         Zone = zone;
     }
 
-    public String getId() {return Id;}
+    public String getSingleValueId() {return SingleValueId;}
 
-    public void setId(String id) {Id = id;}
+    public void setSingleValueId(String singleValueId) {SingleValueId = singleValueId;}
+
+    public String getRangeValuesId() {return RangeValuesId;}
+
+    public void setRangeValuesId(String rangeValuesId) {RangeValuesId = rangeValuesId;}
 
     public String getType() {return Type;}
 

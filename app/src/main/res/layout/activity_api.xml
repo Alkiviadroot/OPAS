@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".NewSensorActivity">
-
+    tools:context=".ApiActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,21 +14,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/page_title"
-            android:text="Add New Sensor"
+            android:text="API"
             android:textSize="30sp"
             android:textStyle="bold"/>
 
-    <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/save_sensor_button"
-        android:src="@drawable/ic_baseline_done_24"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        app:tint="@color/red"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/save_api_button"
+            android:src="@drawable/ic_baseline_done_24"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:tint="@color/red"
+            android:background="?attr/selectableItemBackgroundBorderless"
 
-        />
+            />
     </RelativeLayout>
 
     <LinearLayout
@@ -39,90 +37,57 @@
         android:layout_below="@id/title_bar_layout"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/sensor_name_label"
+            android:id="@+id/ur_single_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
             android:padding="4dp"
-            android:text="Name"
+            android:text="URL - Single Value"
             android:textStyle="bold" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sensor_name"
+            android:id="@+id/url_single"
             android:padding="16dp"
             android:inputType="text"
             android:background="@drawable/border"
-             />
+            />
         <TextView
-            android:id="@+id/sensor_zone_label"
+            android:id="@+id/url_range_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="4dp"
-            android:text="Zone"
+            android:text="URL - Range Values"
             android:textStyle="bold" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sensor_zone"
+            android:id="@+id/ur_range"
             android:padding="16dp"
             android:inputType="text"
             android:background="@drawable/border"
             />
 
         <TextView
-            android:id="@+id/sensor_single_id_label"
+            android:id="@+id/token_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="4dp"
-            android:text="Single Value Id"
+            android:text="Bearer Token"
             android:textStyle="bold" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sensor_id_single"
+            android:id="@+id/token"
             android:padding="16dp"
             android:inputType="text"
             android:background="@drawable/border"
             />
 
-
-        <TextView
-            android:id="@+id/sensor_range_id_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="4dp"
-            android:text="Range Values Id"
-            android:textStyle="bold" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/sensor_id_range"
-            android:padding="16dp"
-            android:inputType="text"
-            android:background="@drawable/border"
-            />
-
-        <TextView
-            android:id="@+id/spinner_type_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="4dp"
-            android:text="Type"
-            android:textStyle="bold" />
-        <Spinner
-            android:id="@+id/spinner_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border"
-            android:inputType="text"
-            android:padding="6dp"
-            android:spinnerMode="dropdown"/>
     </LinearLayout>
+
 
 </RelativeLayout>

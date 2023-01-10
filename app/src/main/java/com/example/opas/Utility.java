@@ -14,8 +14,13 @@ public class Utility {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
-    static CollectionReference getCollectionReferenceFotSensors(){
+    static CollectionReference getCollectionReferenceForSensors(){
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         return FirebaseFirestore.getInstance().collection("senors").document(currentUser.getUid()).collection("my_sensors");
+    }
+
+    static CollectionReference getCollectionReferenceForApi(){
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        return FirebaseFirestore.getInstance().collection("apis").document(currentUser.getUid()).collection("my_apis");
     }
 }

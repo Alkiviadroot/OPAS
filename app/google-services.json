@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "521629183727",
+    "project_id": "opas-1672726341960",
+    "storage_bucket": "opas-1672726341960.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521629183727:android:fa90d35050cb098a3eb51a",
+        "android_client_info": {
+          "package_name": "com.example.opas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521629183727-l5agfplda6ukjp27qtpqhku0273m2a44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXNPJbivPHc3ITOoowWMz2eeGKGSWxNl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521629183727-l5agfplda6ukjp27qtpqhku0273m2a44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
